@@ -11,7 +11,7 @@ canvas.height = innerHeight;
 document.body.appendChild(canvas);
 const ctx = canvas.getContext('2d');
 
-// crear player
+// inicio del jugador
 const player = {
     x: 50,
     y: canvas.height / 2 - 20,
@@ -114,13 +114,13 @@ function actualizar() {
     if (obstaculosInferior[obstaculosInferior.length - 1].x < canvas.width - 400) {
         const nuevoObstaculo = {
             x: canvas.width + Math.random() * 200,
-            altura: Math.random() * 200 + 50,
+            altura: Math.random() * 250 + 50,
             ancho: 50
         };
         obstaculosInferior.push(nuevoObstaculo);
 
         const nuevoObstaculoSuperior = {
-            x: canvas.width + Math.random() * 200,
+            x: canvas.width + Math.random() * 250,
             altura: Math.random() * 200 + 50,
             ancho: 50
         };
@@ -133,7 +133,7 @@ function actualizar() {
         obstaculosSuperior.shift();
     }
 
-    // dibujar la player
+    // dibujar el jugador
     ctx.fillStyle = 'yellow  ';
     ctx.fillRect(player.x, player.y, 50, 50);
 }
