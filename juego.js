@@ -22,13 +22,15 @@ const player = {
 const obstaculosInferior = [
     { x: 200, altura: 500, ancho: 50 },
     { x: 400, altura: 450, ancho: 50 },
-    { x: 600, altura: 550, ancho: 50 }
+    { x: 600, altura: 550, ancho: 50 },
+    { x: 800, altura: 400, ancho: 50 },
 ];
 
 const obstaculosSuperior = [
     { x: 250, altura: 300, ancho: 50 },
     { x: 450, altura: 350, ancho: 50 },
-    { x: 650, altura: 250, ancho: 50 }
+    { x: 650, altura: 250, ancho: 50 },
+    { x: 850, altura: 400, ancho: 50 },
 ];
 
 // variables del juego
@@ -84,6 +86,18 @@ function actualizar() {
         if (player.x < obstaculo.x + obstaculo.ancho &&
             player.x + 50 > obstaculo.x &&
             player.y < obstaculo.altura) {
+            alert('¡Perdiste!');
+            window.location.reload();
+        }
+
+        // verificar que no se salga de la pantalla
+        if (player.y + 50 > canvas.height) {
+            alert('¡Perdiste!');
+            window.location.reload();
+        }
+
+        // verificar que no se salga de la pantalla por arriba
+        if (player.y < 0) {
             alert('¡Perdiste!');
             window.location.reload();
         }
