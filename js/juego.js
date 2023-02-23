@@ -72,7 +72,7 @@ function actualizar() {
         obstaculo.x -= player.velocidad;
         if (obstaculo.x < -obstaculo.ancho) {
             obstaculo.x = canvas.width + Math.random() * 200;
-            obstaculo.altura = Math.random() * 800 + 50;
+            obstaculo.altura = Math.random() * 600 + 50;
         }
     });
 
@@ -90,13 +90,11 @@ function actualizar() {
             window.location.reload();
         }
 
-        // verificar que no se salga de la pantalla
+        // verificar que no se salga de la pantalla ni por arriba ni por abajo 
         if (player.y + 50 > canvas.height) {
             alert('¡Perdiste!');
             window.location.reload();
         }
-
-        // verificar que no se salga de la pantalla por arriba
         if (player.y < 0) {
             alert('¡Perdiste!');
             window.location.reload();
